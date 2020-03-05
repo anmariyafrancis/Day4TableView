@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class Country
+{
+    var name:String = ""
+    var capital:String = ""
+    
+}

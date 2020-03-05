@@ -12,18 +12,19 @@ class ViewController: UIViewController
 {
     @IBOutlet weak var tblCountry: UITableView!
     
-    lazy var countryNames:[country]=[]
-        ["Afganistan","Angola","Aurba","Canada","Indai","Bahamas","Ghana","France","Nepal","Kenya"]
+    lazy var countryNames:[Country]=[]
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    func country()
+    
+    func loadCountries()
     {
-        
+        countryNames.append(Country(name:"India",capital:"New Delhi"))
     }
+    
 }
     extension ViewController:UITableViewDataSource,UITableViewDelegate
     {
@@ -39,12 +40,13 @@ class ViewController: UIViewController
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
         {
             let cell=tableView.dequeueReusableCell(withIdentifier: "CountryCell")
+            
             let country=countryNames[indexPath.row]
             cell?.textLabel?.text=country.name
             cell?.detailTextLabel?.text=country.capital
             cell?.imageView?.image=country.flag
             
-            return cell
+            return cell!
         }
         
     }
